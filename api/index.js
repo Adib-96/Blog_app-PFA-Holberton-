@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
+mongoose.set('strictQuery', true);
 const User = require('./models/User');
 const Post = require('./models/Post');
 const bcrypt = require('bcryptjs');
@@ -20,7 +21,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
 //connect to database
-mongoose.connect('mongodb+srv://blog:3oXYN2aAUtBhqgUa@cluster0.rdxqkfm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://6710:QCVrZ2TmH8kcbFt9@cluster0.i31thkf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
   try{
