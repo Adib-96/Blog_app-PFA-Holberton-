@@ -1,17 +1,25 @@
-export default function Post() {
-    return (
-        <div className="post">
-            <div className="image">
-                <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/luffy-vs-saturn-and-kizaru-one-piece.jpg" alt ="luffy vs kizaru and saturn"></img>
-            </div>
-            <div className="text">
-                <h2>Egghead Incident</h2>
-                <p className="info">
-                    <a className="author">Bonney</a>
-                    <time>2024-01-01 15:30</time>
-                </p>
-                <p className ="summary">The Egghead Incident is an event that occurred when the World Government learned that Dr. Vegapunk had been studying the forbidden knowledge of the Void Century and decided to assassinate him while one of the Four Emperors, Monkey D. Luffy, barricaded himself on the island Egghead. However, to the public, Morgans reported the incident in the news as if the Straw Hat Pirates had taken Vegapunk hostage, whilst the Marines were attempting to save him. Ultimately, between Vegapunk studying the taboo secrets of the world and a survivor of a certain race that should be extinct being present on the island alongside Luffy who had awakened the power of an ancient god, one of the Five Elders, Jaygarcia Saturn ordered a Buster Call to destroy the "infested" island.</p>
-            </div>
-        </div>
-    )
-} 
+import {formatISO9075} from "date-fns";
+import {Link} from "react-router-dom";
+
+export default function Post({_id,title,summary,cover,content,createdAt,author}) {
+
+  return (
+    <div className="post">
+      <div className="image">
+        <Link to={'/post/${_id}'}>
+          <img src={'http://localhost:4000/'+cover} alt=""/>
+        </Link>
+      </div>
+      <div className="texts">
+        <Link to={'/post/${_id}'}>
+        <h2>{title}</h2>
+        </Link>
+        <p className="info">
+          <a className="author">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
+}
