@@ -18,7 +18,7 @@ export default function RegisterPage() {
   }
   return (
     <form className="register" onSubmit={register}>
-      <h1>Register</h1>
+      <h1 className="bouncing">Register</h1>
       <input type="text"
              placeholder="username"
              value={username}

@@ -26,19 +26,19 @@ export default function Header() {
 
   return (
     <header>
-      <Link to="/" className="logo">MyBlog</Link>
+      <Link to="/" className="logo animate-charcter">MyBlog</Link>
       <nav>
         {username && (
-          <>
+          <div>
             <Link to="/create">Create new post</Link>
             <a onClick={logout}>Logout ({username})</a>
-          </>
+          </div>
         )}
         {!username && (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
+          <div>
+            <Link to="/login" className="under_me text-with-border">Login</Link>
+            <Link to="/register" className="under_me text-with-border">Register</Link>
+          </div>
         )}
       </nav>
     </header>

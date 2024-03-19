@@ -26,9 +26,39 @@ header a{
     text-decoration: none;
     color: inherit;
 }
+/* 
+MyBlog animation
+*/
 header a.logo{
     font-weight: bold;
     font-size: 1.5rem;
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 190px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 header nav{
     display: flex;
@@ -149,3 +179,46 @@ div.post-page a.edit-btn{
 a svg{
     height: 20px;
 }
+
+.under_me {
+    margin: 10px;
+}
+
+.text-with-border {
+    position: relative;
+    color: #333; 
+    transition: border-bottom 1s ease; 
+}
+.text-with-border::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; 
+    width: 0%;
+    height: 2px; 
+    background-color: #333; 
+    transition: width 1s ease; 
+}
+.text-with-border:hover::after {
+    width: 100%; 
+}
+
+
+.bouncing {
+    color: #030303;
+    padding-top: 30px;
+    font-family: 'Coiny', cursive;
+    text-align: center;
+    font-size: 70px;
+    animation: bounce 1.2s ease infinite alternate;
+}
+@keyframes bounce {
+    0% {
+        text-shadow:
+                    0 5px 0 #ccc,
+                    0 2px 3px rgba(0, 0, 0, 1);  
+    }
+    100% {
+      transform:translateY(-20px);
+    }
+  }
